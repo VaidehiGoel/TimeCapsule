@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TimeCapsule</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fdfdfd;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: white;
+      border-bottom: 1px solid #eee;
+    }
+
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    .logo img {
+      width: 28px;
+      height: 28px;
+      margin-right: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #555;
+      font-size: 16px;
+    }
+
+    .register-btn {
+      background: #3b7f5f;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .register-btn:hover {
+      background: #2f664b;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(to bottom right, #f6faf6, #eaf5ef);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .hero h1 span {
+      color: #2f664b;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 650px;
+      margin: 0 auto 40px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .btn-primary {
+      background: #3b7f5f;
+      color: white;
+      padding: 12px 26px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .btn-primary:hover {
+      background: #2f664b;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #3b7f5f;
+      border: 1px solid #ccc;
+      padding: 12px 26px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .btn-secondary:hover {
+      background: #f1f1f1;
+    }
+
+    /* How It Works Section */
+    .how-it-works {
+      padding: 80px 20px;
+      text-align: center;
+      background: #fff;
+    }
+
+    .how-it-works h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #3a2e2e;
+    }
+
+    .how-it-works p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 50px;
+    }
+
+    /* Card Grid */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #fffdfb;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      text-align: left;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #3a2e2e;
+    }
+
+    .card p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* Footer / Call to Action */
+    .cta {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(to right, #f8f9f8, #e4f0ea);
+    }
+
+    .cta h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #3a2e2e;
+    }
+
+    .cta p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .cta-btn {
+      background: #3b7f5f;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .cta-btn:hover {
+      background: #2f664b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="https://img.icons8.com/?size=100&id=7uGUVZocPM5s&format=png&color=3b7f5f" alt="logo">
+      TimeCapsule
+    </div>
+    <div class="nav-links">
+      <a href="#">Login</a>
+      <a href="#" class="register-btn">Register</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Preserve Today,<br><span>Treasure Tomorrow</span></h1>
+    <p>
+      Create meaningful time capsules filled with your most cherished memories, thoughts, and moments. 
+      Let the future you discover the beautiful story you're writing today.
+    </p>
+    <div class="buttons">
+      <a href="#" class="btn-primary">Start Your Journey</a>
+      <a href="#" class="btn-secondary">Learn More</a>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <p>Simple, meaningful, and designed for the moments that matter most.</p>
+
+    <div class="features">
+      <div class="card">
+        <h3>Create Time Capsules</h3>
+        <p>Preserve your precious memories, thoughts, and moments in beautifully crafted digital time capsules that capture the essence of today for tomorrow.</p>
+      </div>
+
+      <div class="card">
+        <h3>Upload Media</h3>
+        <p>Add photos, videos, voice messages, and documents to your time capsules. Every memory deserves to be remembered in its full richness.</p>
+      </div>
+
+      <div class="card">
+        <h3>Set Open Dates</h3>
+        <p>Choose when your time capsule will be revealed—whether it's next year, a decade from now, or on a special anniversary that means everything to you.</p>
+      </div>
+
+      <div class="card">
+        <h3>Connect with Loved Ones</h3>
+        <p>Share time capsules with family and friends. Create collaborative memories and surprise your loved ones with messages from the past.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer / Call to Action -->
+  <section class="cta">
+    <h2>Ready to Begin?</h2>
+    <p>Start creating your first time capsule today and give your future self the gift of remembering this beautiful moment.</p>
+    <a href="#" class="cta-btn">Create Your First Time Capsule</a>
+  </section>
+
+</body>
+</html>
