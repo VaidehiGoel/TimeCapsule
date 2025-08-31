@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static %}
+  <title>Login</title>
+  <link rel="stylesheet" href="{% static 'capsule/css/login.css' %}">
+</head>
+
+<body>
+  <div class="wrapper">
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form method= "POST" action="{% url 'login' %}">
+        {% csrf_token %}
+      <div class="form-header">
+        <img src="logo.png" alt="Logo" class="form-logo" />
+  
+      </div>
+      <h2>Login Form</h2>
+      <div class="input-field" id="username">
+        <input type="text" name="username" required />
+        <label>Enter your username</label>
+      </div>
+      
+      <div class="input-field">
+        <input type="password" name="password" required>
+        <label id="password">Enter your password</label>
+      </div>
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          <p>Remember me</p>
+        </label>
+        <a href="#">Forgot password?</a>
+      </div>
+      <button type="submit" id="login">Log In</button>
+      <div class="register">
+        <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>                        
