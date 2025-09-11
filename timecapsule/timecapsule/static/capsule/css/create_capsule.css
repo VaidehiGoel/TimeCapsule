@@ -1,0 +1,56 @@
+.capsule-form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
+.capsule-form .form-group {
+  margin-bottom: 15px;
+}
+
+.capsule-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.capsule-form input[type="text"],
+.capsule-form input[type="datetime-local"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.capsule-form textarea,
+.capsule-form input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.capsule-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.capsule-form .btn {
+  background: #4a90e2;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.3s;
+}
+
+.capsule-form .btn:hover {
+  background: #357ab7;
+}
