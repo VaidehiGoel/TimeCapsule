@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% load static %}
+  <title>Register</title>
+  <link rel="stylesheet" href="{% static 'capsule/css/registration.css' %}" />
+</head>
+
+<body>
+  <div class="wrapper">
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form method= "POST" action="{% url 'register' %}">
+        {% csrf_token %}
+      <div class="form-header">
+        <img src="logo.png" alt="Logo" class="form-logo" />
+       
+      </div>
+       <h2>Registration Form</h2>
+       
+       <div class="input-field" id="username">
+        <input type="text" name="username" required />
+        <label>Enter your username</label>
+      </div>
+
+      <div class="input-field" id="email">
+        <input type="text" name="email" required />
+        <label>Enter your email</label>
+      </div>
+
+      <div class="input-field" id="password">
+        <input type="password" name="password" required />
+        <label>Enter your password</label>
+      </div>
+
+      <div class="input-field">
+        <input type="password" name="confirm_password" required />
+        <label>Re-enter your password</label>
+      </div>
+
+      <button id="register" type="submit">Register</button>
+
+      <br>
+      <p class="login">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </form>
+    
+  </div>
+  
+</body>
+
+</html>
