@@ -64,32 +64,25 @@ def create_capsule(request):
 @login_required
 def opened(request):
     opened = Capsule.objects.filter(user=request.user, unlock_date__lte=now())
-    return render(request, 'opened.html', {'opened': opened})
+    return render(request, 'capsule/opened.html', {'opened': opened,'page': 'opened'})
 
 
 @login_required
 def future(request):
     unopened = Capsule.objects.filter(user=request.user, unlock_date__gt=now())
-    return render(request, 'future.html', {'unopened': unopened})
+    return render(request, 'capsule/future.html', {'unopened': unopened ,'page': 'future'})
 
 
 from datetime import datetime
 
 
 def home(request):
-<<<<<<< HEAD
+
     return render(request, 'capsule/home.html', {
         'page': 'home',
         'timestamp': datetime.now().timestamp()
     })
 # Create your views here.
 
-def future(request):
-    return render(request, 'capsule/future.html', {'page': 'future'})
 
-def opened(request):
-    return render(request, 'capsule/opened.html', {'page': 'opened'})
-=======
-    return render(request, 'capsule/home.html')
 
->>>>>>> createcapsule
