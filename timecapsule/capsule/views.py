@@ -45,9 +45,18 @@ def logout_view(request):
     return redirect('login')
 
 
+from datetime import datetime
+
+
 def home(request):
-    return render(request, 'capsule/home.html')
-def future(response):
-    return HttpResponse('future')
-def opened(response):
-    return HttpResponse('opened')
+    return render(request, 'capsule/home.html', {
+        'page': 'home',
+        'timestamp': datetime.now().timestamp()
+    })
+# Create your views here.
+
+def future(request):
+    return render(request, 'capsule/future.html', {'page': 'future'})
+
+def opened(request):
+    return render(request, 'capsule/opened.html', {'page': 'opened'})

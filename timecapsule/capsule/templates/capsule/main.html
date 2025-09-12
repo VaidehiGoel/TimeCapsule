@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeCapsule</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Navbar overrides */
+    .navbar {
+      padding: 15px 40px; 
+      border-bottom: 1px solid #eee;
+    }
+    .navbar-brand img {
+      width: 28px;
+      height: 28px;
+      margin-right: 8px;
+    }
+    .register-btn {
+      background: #3b7f5f;
+      color: #ffffff !important;
+      padding: 6px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .register-btn:hover {
+      background: #2f664b;
+    }
+
+    /* CTA section */
+    .cta {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(to right, #f8f9f8, #e4f0ea);
+    }
+    .cta h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #3a2e2e;
+    }
+    .cta p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    .cta-btn {
+      background: #3b7f5f;
+      color: white !important;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 17px;
+      display: inline-block;
+    }
+    .cta-btn:hover {
+      background: #2f664b;
+    }
+    </style>
+</head>
+<body data-page="{{ page|default:'home' }}">
+
+  <!-- Navbar -->
+  <nav class="navbar bg-white d-flex justify-content-between align-items-center">
+    <a class="navbar-brand d-flex align-items-center fw-bold text-dark" href="#">
+      <img src="https://via.placeholder.com/28" alt="logo">
+      TimeCapsule
+    </a>
+    <div class="d-flex align-items-center gap-3">
+      <a class="text-secondary text-decoration-none" href="#">Login</a>
+      <a href="#" class="register-btn">Register</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  {% block content %}{% endblock %}
+
+  <!-- CTA Footer -->
+<section class="cta" id="footer-section">
+  <div class="container" id="footer-content">
+    <!-- JavaScript will populate this -->
+  </div>
+</section>
+
+  <!-- Footer JS -->
+  <script src="/static/js/footer.js?v={{ timestamp }}"></script>
+</body>
+</html>
