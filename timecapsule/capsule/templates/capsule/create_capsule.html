@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Capsule</title>
+    <link rel="stylesheet" href="{% static 'capsule/css/create_capsule.css' %}">
+</head>
+<body>
+    <h2>Create Capsule</h2>
+    <form method="POST" enctype="multipart/form-data" class="capsule-form">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            {{ form.title.label_tag }}
+            {{ form.title }}
+            {{ form.title.errors }}
+        </div>
+
+        <div class="form-group">
+            {{ form.message.label_tag }}
+            {{ form.message }}
+            {{ form.message.errors }}
+        </div>
+
+        <div class="form-group">
+            {{ form.unlock_date.label_tag }}
+            {{ form.unlock_date }}
+            {{ form.unlock_date.errors }}
+        </div>
+
+        <div class="form-group">
+            {{ form.image.label_tag }}
+            {{ form.image }}
+            {{ form.image.errors }}
+        </div>
+
+        <div class="form-group">
+            {{ form.video.label_tag }}
+            {{ form.video }}
+            {{ form.video.errors }}
+        </div>
+
+        <div class="form-group">
+            {{ form.audio.label_tag }}
+            {{ form.audio }}
+            {{ form.audio.errors }}
+        </div>
+
+        <button type="submit" class="btn">Save Capsule</button>
+    </form>
+</body>
+</html>

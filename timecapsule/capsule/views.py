@@ -1,4 +1,8 @@
 from django.shortcuts import render,redirect
+from .forms import *
+from .models import *
+from django.contrib.auth.decorators import login_required
+from django.utils.timezone import now
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
@@ -44,11 +48,36 @@ def logout_view(request):
     logout(request)
     return redirect('login')
 
+@login_required
+def create_capsule(request):
+    if request.method=="POST":
+        form=CapsuleForm(request.POST,request.FILES)
+        if form.is_valid():
+            capsule=form.save(commit=False)
+            capsule.user=request.user
+            capsule.save()
+            return redirect('/')
+    else:
+        form=CapsuleForm()
+    return render(request, 'capsule/create_capsule.html', {'form': form})
+
+@login_required
+def opened(request):
+    opened = Capsule.objects.filter(user=request.user, unlock_date__lte=now())
+    return render(request, 'opened.html', {'opened': opened})
+
+
+@login_required
+def future(request):
+    unopened = Capsule.objects.filter(user=request.user, unlock_date__gt=now())
+    return render(request, 'future.html', {'unopened': unopened})
+
 
 from datetime import datetime
 
 
 def home(request):
+<<<<<<< HEAD
     return render(request, 'capsule/home.html', {
         'page': 'home',
         'timestamp': datetime.now().timestamp()
@@ -60,3 +89,7 @@ def future(request):
 
 def opened(request):
     return render(request, 'capsule/opened.html', {'page': 'opened'})
+=======
+    return render(request, 'capsule/home.html')
+
+>>>>>>> createcapsule
