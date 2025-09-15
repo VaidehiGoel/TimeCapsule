@@ -1,0 +1,25 @@
+{% extends "capsule/main.html" %}
+
+{% block content %}
+<h2>{{ capsule.title }}</h2>
+<p>{{ capsule.message }}</p>
+
+{% if capsule.image %}
+  <img src="{{ capsule.image.url }}" width="200">
+{% endif %}
+{% if capsule.video %}
+  <video width="320" height="240" controls>
+    <source src="{{ capsule.video.url }}">
+  </video>
+{% endif %}
+{% if capsule.audio %}
+  <audio controls>
+    <source src="{{ capsule.audio.url }}">
+  </audio>
+{% endif %}
+
+<form action="{% url 'mark_opened' capsule.id %}" method="post" style="display:inline;">
+  {% csrf_token %}
+  <button type="submit" class="btn">Done</button>
+</form>
+{% endblock %}

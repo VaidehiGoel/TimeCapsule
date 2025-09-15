@@ -1,56 +1,98 @@
+/* Capsule Form Container */
 .capsule-form {
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  max-width: 520px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.08);
+  font-family: "Segoe UI", Roboto, sans-serif;
 }
 
+/* Form Title */
+.capsule-form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #2f2f2f;
+}
+
+/* Form Group */
 .capsule-form .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
+/* Labels */
 .capsule-form label {
   display: block;
-  font-weight: bold;
-  margin-bottom: 6px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #444;
 }
 
+/* Inputs */
 .capsule-form input[type="text"],
-.capsule-form input[type="datetime-local"] {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
+.capsule-form input[type="datetime-local"],
 .capsule-form textarea,
 .capsule-form input[type="file"] {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
+  padding: 12px 14px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #333;
+  transition: all 0.25s ease-in-out;
+  background: #fafafa;
 }
 
+/* Focus Effect */
+.capsule-form input:focus,
+.capsule-form textarea:focus {
+  border-color: #3b7f5f;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59,127,95,0.2);
+  outline: none;
+}
+
+/* Textarea */
 .capsule-form textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 120px;
 }
 
+/* Buttons */
 .capsule-form .btn {
-  background: #4a90e2;
-  color: white;
-  padding: 10px 20px;
+  display: block;
+  width: 100%;
+  background: #3b7f5f;
+  color: white !important;
+  padding: 14px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 15px;
-  transition: background 0.3s;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: background 0.3s, transform 0.2s;
 }
 
+/* Button Hover */
 .capsule-form .btn:hover {
-  background: #357ab7;
+  background: #2f664b;
+  transform: translateY(-2px);
+}
+
+/* Button Active (click) */
+.capsule-form .btn:active {
+  transform: translateY(0);
+}
+
+/* Subtle Form Footer (optional) */
+.capsule-form .form-footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #777;
 }

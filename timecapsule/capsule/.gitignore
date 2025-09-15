@@ -1,2 +1,11 @@
 __pycache__/
 *.pyc
+.env
+# Ignore uploaded media
+capsule/media/
+*.png
+*.jpg
+*.jpeg
+*.mp4
+*.mov
+*.avi

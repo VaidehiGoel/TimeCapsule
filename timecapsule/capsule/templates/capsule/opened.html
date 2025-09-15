@@ -1,7 +1,44 @@
-{% extends 'capsule/main.html' %}
+{% extends "capsule/main.html" %}
 {% block content %}
-  <div class="container mt-5">
-    <h2>Opened Page</h2>
-    <p>This is the content of the opened page.</p>
+<h2>Opened Capsules</h2>
+
+{% for capsule in opened %}
+<div class="capsule">
+  <h3>{{ capsule.title }}</h3>
+  <button onclick="toggleContent('{{ capsule.id }}')">View</button>
+
+  <form action="{% url 'delete_capsule' capsule.id %}" method="POST" style="display:inline;">
+  {% csrf_token %}
+  <button type="submit" onclick="return confirm('Are you sure you want to delete this capsule?');" class="btn btn-delete">
+    Delete
+  </button>
+</form>
+
+  <div id="content-{{ capsule.id }}" style="display:none;">
+    <p>{{ capsule.message }}</p>
+    {% if capsule.image %}
+      <img src="{{ capsule.image.url }}" width="200">
+    {% endif %}
+    {% if capsule.video %}
+      <video width="320" height="240" controls>
+        <source src="{{ capsule.video.url }}">
+      </video>
+    {% endif %}
+    {% if capsule.audio %}
+      <audio controls>
+        <source src="{{ capsule.audio.url }}">
+      </audio>
+    {% endif %}
   </div>
+</div>
+
+{% empty %}
+<p>No opened capsules yet.</p>
+{% endfor %}
+<script>
+  function toggleContent(id) {
+    var content = document.getElementById("content-" + id);
+    content.style.display = (content.style.display === "none") ? "block" : "none";
+  }
+</script>
 {% endblock %}

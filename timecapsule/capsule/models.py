@@ -14,5 +14,8 @@ class Capsule(models.Model):
     video = models.FileField(upload_to='capsules/videos/', blank=True, null=True)
     audio = models.FileField(upload_to='capsules/audio/', blank=True, null=True)
 
+    is_opened = models.BooleanField(default=False)   # becomes True after user clicks "Done"
+    viewed_once = models.BooleanField(default=False)
+    
     def __str__(self):
         return f"{self.title} - {self.user.username}"

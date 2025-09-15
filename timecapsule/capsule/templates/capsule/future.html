@@ -1,7 +1,78 @@
-{% extends 'capsule/main.html' %}
+{% extends "capsule/main.html" %}
 {% block content %}
-  <div class="container mt-5">
-    <h2>Future Page</h2>
-    <p>This is the content of the future page.</p>
+<h2>Future Capsules</h2>
+
+{% for capsule in unopened %}
+  <div class="capsule">
+    <h3>{{ capsule.title }}</h3>
+
+    <!-- Local unlock time -->
+    <p class="unlock-time"
+       data-unlock="{{ capsule.unlock_date|date:'c' }}">
+    </p>
+
+    <!-- Countdown -->
+    <p class="countdown" 
+       data-unlock="{{ capsule.unlock_date|date:'c' }}" 
+       data-id="{{ capsule.id }}">
+    </p>
+
+    <!-- View button appears when countdown finishes -->
+    <form method="get" action="{% url 'view_capsule' capsule.id %}">
+      <button id="view-btn-{{ capsule.id }}" type="submit" class="btn btn-primary view-btn" style="display:none;">
+        View Now
+      </button>
+    </form>
+
+      
+
+    <form action="{% url 'delete_capsule' capsule.id %}" method="POST" style="display:inline;">
+      {% csrf_token %}
+      <button type="submit" onclick="return confirm('Are you sure you want to delete this capsule?');" class="btn btn-delete">
+        Delete
+      </button>
+    </form>
   </div>
+{% empty %}
+<p>No future capsules yet.</p>
+{% endfor %}
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Display unlock time in local timezone
+  document.querySelectorAll(".unlock-time").forEach(elem => {
+    const utcTime = new Date(elem.dataset.unlock);
+    elem.innerHTML = "Unlocks on: " + utcTime.toLocaleString();
+  });
+
+  // Countdown logic
+  function startCountdown(elem) {
+    const unlockTime = new Date(elem.dataset.unlock);
+    const id = elem.dataset.id;
+    const viewBtn = document.getElementById("view-btn-" + id);
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = unlockTime - now;
+
+      if (diff <= 0) {
+        elem.innerHTML = "Unlocked!";
+        if (viewBtn) viewBtn.style.display = "inline-block";
+        clearInterval(timer);
+      } else {
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const m = Math.floor((diff / (1000 * 60)) % 60);
+        const s = Math.floor((diff / 1000) % 60);
+        elem.innerHTML = `${d}d ${h}h ${m}m ${s}s remaining`;
+      }
+    }
+
+    updateCountdown();
+    const timer = setInterval(updateCountdown, 1000);
+  }
+
+  document.querySelectorAll(".countdown").forEach(startCountdown);
+});
+</script>
 {% endblock %}
