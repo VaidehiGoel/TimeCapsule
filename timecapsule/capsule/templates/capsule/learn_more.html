@@ -1,0 +1,57 @@
+{% extends 'capsule/main.html' %}
+{% block content %}
+<style>
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+
+  .heading {
+    justify-self: center;
+  }
+  }
+</style>
+<div class="row py-lg-5"> 
+    <div class="col-lg-6 col-md-8 mx-auto"> 
+    <h1 class="fw-light heading">Get to know us!</h1> 
+    <p class="lead text-body-secondary">We’re two B.Tech students on our very first project adventure—this time capsule website! Think of it as our way of blending code, caffeine, and curiosity into something that saves memories for the future. We might not have invented time travel (yet), but we like to think this is the next best thing. Stick around—you’re witnessing history… literally.</p>  
+    </div> 
+</div>
+<div class="album py-5 bg-body-tertiary"> 
+    <div class="container"> 
+        <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center"> 
+            <div class="col"> <div class="card shadow-sm"> 
+                <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" height="225" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#55595c"></rect>
+                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                </svg> 
+                <div class="card-body"> 
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> 
+                </div> 
+            </div> 
+        </div> 
+        <div class="col"> 
+            <div class="card shadow-sm"> 
+                <svg aria-label="Placeholder: Thumbnail" class="bd-placeholder-img card-img-top" height="225" preserveAspectRatio="xMidYMid slice" role="img" width="100%" xmlns="http://www.w3.org/2000/svg">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#55595c"></rect>
+                    <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                </svg> 
+                <div class="card-body"> 
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> 
+                </div> 
+            </div> 
+        </div> 
+    </div>
+</div>
+{% endblock %}
